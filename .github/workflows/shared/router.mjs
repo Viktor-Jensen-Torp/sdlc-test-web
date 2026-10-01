@@ -25,7 +25,8 @@ import { execFileSync } from "node:child_process";
 
 const RULES_DIR = ".github/aw/rules";
 const repo = process.env.GITHUB_REPOSITORY;
-const event = process.env.EVENT;
+// Rules name "pull_request"; the router listens with pull_request_target.
+const event = process.env.EVENT === "pull_request_target" ? "pull_request" : process.env.EVENT;
 const dryRun = !process.env.GH_TOKEN;
 
 const gh = (args) => execFileSync("gh", args, { encoding: "utf8" });
@@ -55,7 +56,7 @@ function itemsForEvent() {
     ? JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, "utf8"))
     : {};
   const inputs = payload.inputs || {};
-  if (event === "pull_request") return [{ kind: "pr", n: payload.pull_request.number }];
+  if (event === "pull_request" || event === "pull_request_target") return [{ kind: "pr", n: payload.pull_request.number }];
   if (event === "issues") return [{ kind: "issue", n: payload.issue.number }];
   if (event === "workflow_dispatch" && inputs.pr) return [{ kind: "pr", n: Number(inputs.pr) }];
   if (event === "workflow_dispatch" && inputs.issue) return [{ kind: "issue", n: Number(inputs.issue) }];
@@ -113,8 +114,8 @@ function unmet(w, s) {
 }
 
 function mismatch(rule, s) {
-  if (!rule["wakes-on"].includes(event)) return `does not wake on ${event}`;
   if (rule.when.item !== s.kind) return `is for ${rule.when.item}s`;
+  if (!rule["wakes-on"].includes(event)) return `does not wake on ${event}`;
   const why = unmet(rule.when, s);
   if (why) return why;
   if (rule.limit.running !== undefined && !dryRun && running(rule, s.n) >= rule.limit.running) return "is already running";

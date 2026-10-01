@@ -101,7 +101,7 @@ evals:
     question: Are all of the agent's review comments about lines that appear in the pull request diff?
   - id: check_agrees
     question: Does the "Agent review" check's conclusion agree with the review event (failure for REQUEST_CHANGES, success for COMMENT)?
-source: Viktor-Jensen-Torp/umain-sdlc@9c526e20a872052542e8be93944d86a4240d6e97
+source: Viktor-Jensen-Torp/umain-sdlc@95633adbf6e264e16af3f2904368c9a53a4b1a6a
 ---
 
 # Review

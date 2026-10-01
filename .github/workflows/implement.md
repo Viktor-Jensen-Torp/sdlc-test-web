@@ -86,7 +86,7 @@ evals:
     question: Were new or updated tests added for the behaviour this change introduces or fixes?
   - id: stayed_in_scope
     question: Does the change stay within what the issue asked for, without touching unrelated code?
-source: Viktor-Jensen-Torp/umain-sdlc@9c526e20a872052542e8be93944d86a4240d6e97
+source: Viktor-Jensen-Torp/umain-sdlc@95633adbf6e264e16af3f2904368c9a53a4b1a6a
 ---
 
 # Implement

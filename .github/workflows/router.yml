@@ -5,7 +5,11 @@
 name: router
 run-name: "router: ${{ github.event_name }}${{ github.event.pull_request && format(' #{0}', github.event.pull_request.number) || '' }}${{ github.event.issue && format(' #{0}', github.event.issue.number) || '' }}${{ inputs.pr && format(' #{0}', inputs.pr) || '' }}${{ inputs.issue && format(' #{0}', inputs.issue) || '' }}"
 on:
-  pull_request:
+  # pull_request_target, not pull_request: GitHub then runs this file as it is
+  # on the default branch, not the copy on the pull request's branch, so an old
+  # branch never runs an old router. Safe because the router only reads labels
+  # and checks; it never checks out or runs the pull request's code.
+  pull_request_target:
     types: [opened, synchronize, reopened, ready_for_review, labeled]
   issues:
     types: [opened, labeled]

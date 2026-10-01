@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "package": "Viktor-Jensen-Torp/umain-sdlc",
-  "source": "Viktor-Jensen-Torp/umain-sdlc@9c526e20a872052542e8be93944d86a4240d6e97",
-  "resolvedCommit": "9c526e20a872052542e8be93944d86a4240d6e97",
+  "source": "Viktor-Jensen-Torp/umain-sdlc@95633adbf6e264e16af3f2904368c9a53a4b1a6a",
+  "resolvedCommit": "95633adbf6e264e16af3f2904368c9a53a4b1a6a",
   "installer": "gh-aw v0.89.21",
   "files": [
     {
@@ -63,27 +63,27 @@
     {
       "source": "roles/implement/workflows/implement.md",
       "destination": ".github/workflows/implement.md",
-      "sha256": "fdff5fa699b6660cbef47678b5e2762816f1300726fb938e723fce1032db31e8"
+      "sha256": "6ce3a5a107cb454ceb69b3f3443445a499bf211ff1e487506e39d080c0ee6d45"
     },
     {
       "source": "roles/review/workflows/review.md",
       "destination": ".github/workflows/review.md",
-      "sha256": "f6cdde6b01d70b0a3b85c1dbebd3585b8b7ccc40f0663e2cb4b8771b00322ba2"
+      "sha256": "16e01ee1b90ee41f02714151e6af281cd5708f2f23dd7c6cadab1f0ff55f2295"
     },
     {
       "source": "roles/rework/workflows/rework.md",
       "destination": ".github/workflows/rework.md",
-      "sha256": "2e56f3ec133e091e41fa4dbfc3ea1865ab3bd52a68f8572c60e9f600fd0e7fe7"
+      "sha256": "7a7b9b326e45069e44e5bcf2b1b46d9ed0488bf0b135b0123ea0ed385ea5b49c"
     },
     {
       "source": "base/payload/router.yml",
       "destination": ".github/workflows/router.yml",
-      "sha256": "97170533f18b672e8aa121e296371972f57911695462e3f0c3c983fbe0e72400"
+      "sha256": "f0eb507a1e6f8051ccde08f15162fbaf949bf3a5af150e3ffb016e39c8c51663"
     },
     {
       "source": "base/payload/router.mjs",
       "destination": ".github/workflows/shared/router.mjs",
-      "sha256": "b1f4c4e132853b0fb552c08532ec75487165e5692f004fc5e7da716273af1572"
+      "sha256": "fd04d9c3b8d0f1bf77aed0f57c6bdb0965f3bb4b90c11c7ef03621b3426aabce"
     }
   ]
 }
