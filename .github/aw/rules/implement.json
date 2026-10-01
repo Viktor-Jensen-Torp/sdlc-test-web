@@ -1,0 +1,10 @@
+{
+  "wakes-on": ["issues", "workflow_dispatch", "schedule"],
+  "when": {
+    "item": "issue",
+    "labels": ["ready"],
+    "labels-not": ["paused", "needs-human"],
+    "no-open-pr": true
+  },
+  "limit": { "running": 1 }
+}

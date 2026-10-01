@@ -1,15 +1,22 @@
-# Installed by the umain-sdlc base package. Wakes on pull request events, a
-# nudge (workflow_dispatch) and the clock, then runs the router, which reads
-# every role's rule in .github/aw/rules/ and dispatches the roles that match.
+# Installed by the umain-sdlc base package. Wakes on pull request and issue
+# events, a nudge (workflow_dispatch, sent by a role when it finishes) and the
+# clock, then runs the router, which reads every role's rule in
+# .github/aw/rules/ and dispatches the roles that match.
 name: router
-run-name: "router: ${{ github.event_name }}${{ github.event.pull_request && format(' #{0}', github.event.pull_request.number) || '' }}${{ inputs.pr && format(' #{0}', inputs.pr) || '' }}"
+run-name: "router: ${{ github.event_name }}${{ github.event.pull_request && format(' #{0}', github.event.pull_request.number) || '' }}${{ github.event.issue && format(' #{0}', github.event.issue.number) || '' }}${{ inputs.pr && format(' #{0}', inputs.pr) || '' }}${{ inputs.issue && format(' #{0}', inputs.issue) || '' }}"
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+    types: [opened, synchronize, reopened, ready_for_review, labeled]
+  issues:
+    types: [opened, labeled]
   workflow_dispatch:
     inputs:
       pr:
-        description: "Pull request to route (empty: every open one)"
+        description: "Pull request to route"
+        required: false
+        type: string
+      issue:
+        description: "Issue to route"
         required: false
         type: string
   # The clock: catches anything a lost trigger left behind.
@@ -19,9 +26,10 @@ permissions:
   contents: read
   actions: write
   checks: read
+  issues: read
   pull-requests: read
 concurrency:
-  group: router-${{ github.event.pull_request.number || inputs.pr || github.run_id }}
+  group: router-${{ github.event.pull_request.number || github.event.issue.number || inputs.pr || inputs.issue || github.run_id }}
 jobs:
   route:
     runs-on: ubuntu-latest

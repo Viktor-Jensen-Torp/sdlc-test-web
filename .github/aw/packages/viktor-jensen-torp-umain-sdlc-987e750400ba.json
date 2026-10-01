@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "package": "Viktor-Jensen-Torp/umain-sdlc",
+  "source": "Viktor-Jensen-Torp/umain-sdlc@9c526e20a872052542e8be93944d86a4240d6e97",
+  "resolvedCommit": "9c526e20a872052542e8be93944d86a4240d6e97",
+  "installer": "gh-aw v0.89.21",
+  "files": [
+    {
+      "source": "checks/lint/aw/checks/lint.json",
+      "destination": ".github/aw/checks/lint.json",
+      "sha256": "94207c9ee05f55993564093343b861f1fe81f340646ca2c552426449ee9b39bf"
+    },
+    {
+      "source": "conventions/chain/aw/conventions/chain/index.md",
+      "destination": ".github/aw/conventions/chain/index.md",
+      "sha256": "910f3d5dd65e3756d53bac54bbd23eb0ec71a9100503a313904bccdc4a711abc"
+    },
+    {
+      "source": "conventions/chain/aw/conventions/chain/principles.md",
+      "destination": ".github/aw/conventions/chain/principles.md",
+      "sha256": "be5bd9d8aa62b4538e601b3195539f6c9ee837fa0591c3e38d3f4b598a66b8a0"
+    },
+    {
+      "source": "conventions/chain/aw/conventions/chain/testing.md",
+      "destination": ".github/aw/conventions/chain/testing.md",
+      "sha256": "da3d75115cca9561726586cbd51da59cd63df64d2c834dcc4ea3f903f564b5f4"
+    },
+    {
+      "source": "roles/implement/aw/roles/implement/prompt.md",
+      "destination": ".github/aw/roles/implement/prompt.md",
+      "sha256": "3713bebed5efa982ba302ac8cca968d8a519e126f6dd92cb043fc8437b127e07"
+    },
+    {
+      "source": "roles/review/aw/roles/review/prompt.md",
+      "destination": ".github/aw/roles/review/prompt.md",
+      "sha256": "a501568cb38813b6619c28f08e7174357b84d5a019557cd797457900a8527ce9"
+    },
+    {
+      "source": "roles/rework/aw/roles/rework/prompt.md",
+      "destination": ".github/aw/roles/rework/prompt.md",
+      "sha256": "38994d0984945e978c41d61690596e8dff391d041d5e1f4bfb2326f2aa8a3732"
+    },
+    {
+      "source": "roles/implement/aw/rules/implement.json",
+      "destination": ".github/aw/rules/implement.json",
+      "sha256": "d17a3cbd55985a68b1643987915dc79a39e8f8391061efa28b8c043673400ba6"
+    },
+    {
+      "source": "roles/review/aw/rules/review.json",
+      "destination": ".github/aw/rules/review.json",
+      "sha256": "399100de0e4854e040053c7f583e1dca54b130fc8081663a8d4c354c66f7981c"
+    },
+    {
+      "source": "roles/rework/aw/rules/rework.json",
+      "destination": ".github/aw/rules/rework.json",
+      "sha256": "7259a63841b06d0134b97e1023b8d8596d1665cb423eb258432cdfe97a6856fb"
+    },
+    {
+      "source": "checks/lint/payload/check-lint.yml",
+      "destination": ".github/workflows/check-lint.yml",
+      "sha256": "90d9861e0080f56e018aa48ff4feab830b640915975b727d461c6b52dac26ee5"
+    },
+    {
+      "source": "roles/implement/workflows/implement.md",
+      "destination": ".github/workflows/implement.md",
+      "sha256": "fdff5fa699b6660cbef47678b5e2762816f1300726fb938e723fce1032db31e8"
+    },
+    {
+      "source": "roles/review/workflows/review.md",
+      "destination": ".github/workflows/review.md",
+      "sha256": "f6cdde6b01d70b0a3b85c1dbebd3585b8b7ccc40f0663e2cb4b8771b00322ba2"
+    },
+    {
+      "source": "roles/rework/workflows/rework.md",
+      "destination": ".github/workflows/rework.md",
+      "sha256": "2e56f3ec133e091e41fa4dbfc3ea1865ab3bd52a68f8572c60e9f600fd0e7fe7"
+    },
+    {
+      "source": "base/payload/router.yml",
+      "destination": ".github/workflows/router.yml",
+      "sha256": "97170533f18b672e8aa121e296371972f57911695462e3f0c3c983fbe0e72400"
+    },
+    {
+      "source": "base/payload/router.mjs",
+      "destination": ".github/workflows/shared/router.mjs",
+      "sha256": "b1f4c4e132853b0fb552c08532ec75487165e5692f004fc5e7da716273af1572"
+    }
+  ]
+}

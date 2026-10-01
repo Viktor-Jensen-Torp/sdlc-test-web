@@ -1,0 +1,13 @@
+{
+  "wakes-on": ["pull_request", "workflow_dispatch", "schedule"],
+  "when": {
+    "item": "pr",
+    "labels": ["agent"],
+    "labels-not": ["paused", "needs-human"],
+    "any": [
+      { "check-failed": "*" },
+      { "conflicted": true }
+    ]
+  },
+  "limit": { "running": 1 }
+}

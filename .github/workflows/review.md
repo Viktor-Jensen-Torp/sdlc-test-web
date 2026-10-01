@@ -26,6 +26,21 @@ permissions:
   contents: read
   pull-requests: read
 
+# When the review is posted, nudge the router: another role's rule may now
+# match (rework, on a failed review). A dispatch made with GITHUB_TOKEN is the
+# one write by this token that starts a workflow.
+jobs:
+  conclusion:
+    permissions:
+      actions: write
+    pre-steps:
+      - name: Nudge the router
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.inputs.pr }}
+        run: gh workflow run router.yml --repo "$REPO" -f pr="$PR" || echo "::warning::could not nudge the router"
+
 engine:
   id: pi
 model: anthropic/claude-haiku-4-5-20251001
@@ -86,7 +101,7 @@ evals:
     question: Are all of the agent's review comments about lines that appear in the pull request diff?
   - id: check_agrees
     question: Does the "Agent review" check's conclusion agree with the review event (failure for REQUEST_CHANGES, success for COMMENT)?
-source: Viktor-Jensen-Torp/umain-sdlc/roles/review@7c8dd78347b623eb16d653d8e162c09bb45bfc64
+source: Viktor-Jensen-Torp/umain-sdlc@9c526e20a872052542e8be93944d86a4240d6e97
 ---
 
 # Review
