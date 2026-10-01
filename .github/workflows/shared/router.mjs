@@ -15,9 +15,9 @@
 //   when.labels-not none of these labels may be on the item
 //   when.check-missing  no check run of this name on the head commit yet
 //   limit.running   at most this many runs of the role on the item at once
-const fs = require("fs");
-const path = require("path");
-const { execFileSync } = require("child_process");
+import fs from "node:fs";
+import path from "node:path";
+import { execFileSync } from "node:child_process";
 
 const RULES_DIR = ".github/aw/rules";
 const repo = process.env.GITHUB_REPOSITORY;

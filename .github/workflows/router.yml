@@ -32,7 +32,7 @@ jobs:
           sparse-checkout: .github
           persist-credentials: false
       - name: Route
-        run: node .github/workflows/shared/router.cjs
+        run: node .github/workflows/shared/router.mjs
         env:
           EVENT: ${{ github.event_name }}
           GH_TOKEN: ${{ github.token }}
