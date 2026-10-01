@@ -1,0 +1,5 @@
+{
+  "description": "The project's linter",
+  "run": "npm run lint",
+  "check": "lint"
+}

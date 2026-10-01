@@ -1,0 +1,10 @@
+{
+  "wakes-on": ["pull_request", "workflow_dispatch", "schedule"],
+  "when": {
+    "item": "pr",
+    "draft": false,
+    "labels-not": ["paused", "needs-human"],
+    "check-missing": "Agent review"
+  },
+  "limit": { "running": 1 }
+}

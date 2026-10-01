@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "package": "Viktor-Jensen-Torp/umain-sdlc/base",
+  "source": "Viktor-Jensen-Torp/umain-sdlc/base@7c8dd78347b623eb16d653d8e162c09bb45bfc64",
+  "resolvedCommit": "7c8dd78347b623eb16d653d8e162c09bb45bfc64",
+  "installer": "gh-aw v0.89.21",
+  "files": [
+    {
+      "source": "base/payload/router.yml",
+      "destination": ".github/workflows/router.yml",
+      "sha256": "59a498c4f73e64d4575491e6e665d0f0879791b4a3f6261c25823e599732f1c0"
+    },
+    {
+      "source": "base/payload/router.cjs",
+      "destination": ".github/workflows/shared/router.cjs",
+      "sha256": "d0ba42d3e01f91ce9f19124ed93168a13bcfcbc0cc4cf84d620a08536741547c"
+    }
+  ]
+}

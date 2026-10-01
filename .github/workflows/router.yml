@@ -1,0 +1,38 @@
+# Installed by the umain-sdlc base package. Wakes on pull request events, a
+# nudge (workflow_dispatch) and the clock, then runs the router, which reads
+# every role's rule in .github/aw/rules/ and dispatches the roles that match.
+name: router
+run-name: "router: ${{ github.event_name }}${{ github.event.pull_request && format(' #{0}', github.event.pull_request.number) || '' }}${{ inputs.pr && format(' #{0}', inputs.pr) || '' }}"
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "Pull request to route (empty: every open one)"
+        required: false
+        type: string
+  # The clock: catches anything a lost trigger left behind.
+  schedule:
+    - cron: "*/30 * * * *"
+permissions:
+  contents: read
+  actions: write
+  checks: read
+  pull-requests: read
+concurrency:
+  group: router-${{ github.event.pull_request.number || inputs.pr || github.run_id }}
+jobs:
+  route:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github
+          persist-credentials: false
+      - name: Route
+        run: node .github/workflows/shared/router.cjs
+        env:
+          EVENT: ${{ github.event_name }}
+          GH_TOKEN: ${{ github.token }}
