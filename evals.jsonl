@@ -1,0 +1,2 @@
+{"id":"tests_added","question":"Were new or updated tests added for the behaviour this change introduces or fixes?","answer":"NO","model":"anthropic/claude-haiku-4-5-20251001","timestamp":"2026-10-01T19:34:17.018Z","runid":"36914624724"}
+{"id":"stayed_in_scope","question":"Does the change stay within what the issue asked for, without touching unrelated code?","answer":"YES","model":"anthropic/claude-haiku-4-5-20251001","timestamp":"2026-10-01T19:34:17.018Z","runid":"36914624724"}
